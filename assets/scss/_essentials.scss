@@ -1,0 +1,154 @@
+/*
+	****************** Essentials ******************
+*/
+
+// Have padding fall within the elements width and not add up to it
+// See https://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: underline;
+	background-color: transparent;
+		&:active,
+		&:hover {
+			outline: none;
+		}
+}
+
+input, button, textarea {
+	appearance: none;
+	&[type=radio] {
+		appearance: radio;
+	}
+	&[type=checkbox] {
+		appearance: checkbox;
+	}
+}
+
+
+/*
+	****************** Fluids ******************
+	These columns are made for nesting.
+	First define the max-width of .container and nest other classes in this element.
+*/
+
+$breakpoints: ("hd": $desktopHD, "d": $desktop, "t": $tablet, "m":$mobile);
+
+.container {
+	width: 100%;
+	display: block;
+	max-width: $desktopHD;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+    visibility: hidden;
+    height: 0;
+	}
+}
+
+
+//default metrics for columns
+@for $i from 0 through $gridsize {
+	.col-#{$i} {
+		@if $i == 0 {
+			display: none;
+		} @else {
+			display: block;
+			width:  ( $i /$gridsize ) *100%;
+		}
+	}
+}
+
+@each $slug, $size in $breakpoints {
+	@media (max-width: #{$size}) {
+		@for $i from 0 through $gridsize {
+			.col-#{$slug}-#{$i} {
+				@if $i == 0 {
+					display: none;
+				} @else {
+					display: block;
+					width:  ( $i /$gridsize ) *100%;
+				}
+			}
+		}
+	}
+}
+
+/*
+	****************** positioning ******************
+	All classes below are used for container and col-* alignment or to add padding between cols
+	These classes are reserved and should not be altered in any way.
+*/
+
+.center {
+	margin: 0 auto;
+	float: none;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+@media (max-width: $desktop) {
+	.center-d {
+		margin: 0 auto;
+		float: none;
+	}
+	.left-d {
+		float: left;
+	}
+	.right-d {
+		float: right;
+	}
+}
+
+@media (max-width: $tablet) {
+	.center-t {
+		margin: 0 auto;
+		float: none;
+	}
+	.left-t {
+		float: left;
+	}
+	.right-t {
+		float: right;
+	}
+}
+
+@media (max-width: $mobile) {
+	.center-m {
+		margin: 0 auto;
+		float: none;
+	}
+	.left-m {
+		float: left;
+	}
+	.right-m {
+		float: right;
+	}
+}
+
+.padding {
+	padding-right: $gutter;
+	padding-left: $gutter;
+}
+
+.clearfix {
+	clear: both;
+}

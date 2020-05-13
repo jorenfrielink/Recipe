@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display&display=swap');
+
+$font-primary : 'Open Sans', sans-serif;
+$font-secondary : 'Playfair Display', serif;
+
+html, body {
+	font-size: 18px;
+	line-height: 27px;
+	font-family: $font-primary;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: normal;
+	font-family: $font-secondary;
+	line-height: 48px;
+	&:first-letter {
+		font-size: 150%;
+	}
+	&:after {
+		height: 5px;
+		background-color: $black;
+		width: 230px;
+		display: block;
+		content: "";
+		margin-top: 20px;
+	}
+}
+
+h2 {
+	font-size: 28px;
+	font-weight: normal;
+	font-family: $font-secondary;
+	line-height: 36px;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: normal;
+	font-family: $font-secondary;
+	line-height: 27px;
+}
+
+h4 {
+	font-size: 14px;
+	font-weight: normal;
+	font-family: $font-secondary;
+	line-height: 21px;
+}
+
+h5 {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 18px;
+}
+
+h6 {
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 18px;
+}

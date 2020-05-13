@@ -1,0 +1,172 @@
+@import 'vendor/normalize.scss';
+
+@import 'vars.scss';
+@import 'essentials.scss';
+
+@import 'components/functions.scss';
+@import 'components/typography.scss';
+@import 'components/buttons.scss';
+@import 'components/navigation.scss';
+
+/*
+    ****************** Content ******************
+*/
+
+
+
+body {
+  background-color: $colour_1;
+}
+
+
+footer {
+  background-color: $colour_2;
+  min-height: 200px;
+  margin-top: 50px;
+
+  &:before {
+    height: 5px;
+    background-color: $black;
+    width: 100%;
+    display: block;
+    content: "";
+    margin-top: 20px;
+  }
+}
+
+a {
+  color: $colour_2;
+}
+
+article {
+  &#recipe {
+    section {
+      margin-bottom: 50px;
+    }
+
+    &.hide_ingredients {
+      #ingredients {
+        display: none;
+      }
+    }
+
+    ul {
+      padding-left: 0;
+
+      li {
+        margin-left: 40px;
+        cursor: pointer;
+        list-style: none;
+
+        &:before {
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          border: solid 2px $colour_3;
+          box-shadow: 1px 1px 0 0 $black;
+          border-radius: 2px;
+          content: "";
+          margin-left: -24px;
+          margin-right: 8px;
+          margin-bottom: -2px;
+        }
+
+        p {
+          display: inline;
+        }
+
+        &:hover {
+          &:before {
+            background-color: $colour_2;
+          }
+
+        }
+
+        &.checked {
+          text-decoration: line-through;
+
+          &:before {
+
+            background-color: $colour_2;
+
+          }
+        }
+      }
+    }
+
+    ol {
+      padding-left: 0;
+
+      li {
+        margin-left: 40px;
+
+        p {
+          display: inline;
+        }
+
+        &:hover {
+          cursor: pointer;
+          list-style: none;
+
+          &:before {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            border: solid 2px $colour_3;
+            background-color: $colour_2;
+            box-shadow: 1px 1px 0 0 $black;
+            border-radius: 2px;
+            content: "";
+            margin-left: -22px;
+            margin-right: 6px;
+          }
+        }
+
+        &.checked {
+          text-decoration: line-through;
+
+          &:before {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-color: $colour_2;
+            border-radius: 2px;
+            content: "";
+            margin-left: -22px;
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+aside {
+  &#ingredients {
+    ul {
+      border-left: solid 1px $colour_3;
+    }
+  }
+}
+
+#toolbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $colour_1;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
+  .tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: baseline;
+}
